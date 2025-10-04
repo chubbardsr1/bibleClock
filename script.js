@@ -88,11 +88,12 @@ class BiblicalClock {
         const minutes = now.getMinutes();
         const seconds = now.getSeconds();
         
-        // Format time display
+        // Format time display - 12 hour format with leading zeros for minutes
         const displayHours = hours === 0 ? 12 : (hours > 12 ? hours - 12 : hours);
-        const formatString = `${hours >= 12 ? 'PM' : 'AM'} • ${seconds.toString().padStart(2, '0')}s`;
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const timeString = `${displayHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
         
-        this.timeFormatElement.textContent = formatString;
+        this.timeFormatElement.textContent = timeString;
         
         // Get biblical verse based on time
         this.displayVerse(displayHours, minutes);
@@ -114,18 +115,21 @@ class BiblicalClock {
         
         if (verseData) {
             this.hideError();
-            // Display book name in title
-            this.bookNameElement.textContent = verseData.book;
-            // Display chapter:verse in time area
+            // Display book name in title, or fallback message if blank
+            const bookName = verseData.book && verseData.book.trim() !== '' 
+                ? verseData.book 
+                : 'God is good all the time, and all the time God is good';
+            this.bookNameElement.textContent = bookName;
+            // Display chapter:verse in time area with leading zero for verse
             this.chapterVerseElement.textContent = `${verseData.chapter}:${verseData.verse.toString().padStart(2, '0')}`;
             // Display verse text
             this.verseTextElement.textContent = verseData.text;
             console.log(`Displayed: ${verseData.book} ${verseData.chapter}:${verseData.verse}`);
         } else {
-            // Show fallback message
+            // Show fallback message with leading zero for verse
             console.log('No verse found, showing fallback');
-            this.bookNameElement.textContent = 'Biblical Clock';
-            this.chapterVerseElement.textContent = `${chapter}:${verse}`;
+            this.bookNameElement.textContent = 'God is good all the time, and all the time God is good';
+            this.chapterVerseElement.textContent = `${chapter}:${verse.toString().padStart(2, '0')}`;
             this.verseTextElement.textContent = 'No verse available for this time. Please add more verses to the database.';
         }
     }
