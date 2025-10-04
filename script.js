@@ -4,7 +4,7 @@ class BiblicalClock {
         this.verses = null;
         this.bookNameElement = document.getElementById('bookName');
         this.chapterVerseElement = document.getElementById('chapterVerse');
-        // this.timeFormatElement = document.getElementById('timeFormat');
+        this.timeFormatElement = document.getElementById('timeFormat');
         this.verseTextElement = document.getElementById('verseText');
         this.loadingIndicator = document.getElementById('loadingIndicator');
         this.errorMessage = document.getElementById('errorMessage');
@@ -92,7 +92,7 @@ class BiblicalClock {
         const displayHours = hours === 0 ? 12 : (hours > 12 ? hours - 12 : hours);
         const formatString = `${hours >= 12 ? 'PM' : 'AM'} • ${seconds.toString().padStart(2, '0')}s`;
         
-        // this.timeFormatElement.textContent = formatString;
+        this.timeFormatElement.textContent = formatString;
         
         // Get biblical verse based on time
         this.displayVerse(displayHours, minutes);
