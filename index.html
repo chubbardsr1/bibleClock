@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Biblical Clock</title>
+    <link rel="stylesheet" href="styles.css?v=123" id="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="clock-container">
+            <div class="clock-section">
+                <h1 class="app-title" id="bookName">
+                    Loading...
+                </h1>
+                
+                <div class="time-display">
+                    <div class="current-time" id="chapterVerse">--:--</div>
+                    <div class="time-format" id="timeFormat">--</div>
+                </div>
+            </div>
+            
+            <div class="verse-container">
+                <div class="verse-text" id="verseText">
+                    Loading biblical verse...
+                </div>
+            </div>
+            
+            <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading verse...</p>
+            </div>
+            
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p>Unable to load verse for this time</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js?v=987" id="mainscript"></script>
+    <!-- <script>
+        // Add timestamp-based cache busting to CSS and JS
+        const timestamp = new Date().getTime();
+        document.getElementById('stylesheet').href = 'styles.css?v=' + timestamp;
+        document.getElementById('mainscript').src = 'script.js?v=' + timestamp;
+    </script> -->
+</body>
+</html>

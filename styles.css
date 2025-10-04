@@ -1,0 +1,251 @@
+/* Biblical Clock Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    width: 360px;
+    height: 240px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.clock-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    height: 230px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.clock-section {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.app-title {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.time-display {
+    margin-bottom: 4px;
+}
+
+.current-time {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #34495e;
+    font-family: 'Courier New', monospace;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.time-format {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.verse-container {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 6px;
+    margin: 2px 0 0 0;
+    border-left: 2px solid #3498db;
+    height: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.book-chapter-verse {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.verse-text {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    color: #2c3e50;
+    font-style: italic;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 4px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    background: #e74c3c;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.error-message p {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+/* Optimized for 360x240 window */
+.loading-indicator p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.book-chapter-verse {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+/* Media query for larger screens that can accommodate 648x480 */
+@media (min-width: 648px) and (min-height: 480px) {
+    .container {
+        width: 648px;
+        height: 480px;
+        padding: 15px;
+    }
+
+    .clock-container {
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        height: 450px;
+        width: 618px;
+    }
+
+    .clock-section {
+        margin-bottom: 8px;
+    }
+
+    .app-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+
+    .time-display {
+        margin-bottom: 15px;
+    }
+
+    .current-time {
+        font-size: 3.5rem;
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+
+    .time-format {
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
+
+    .verse-container {
+        border-radius: 12px;
+        padding: 20px;
+        margin: 8px 0 0 0;
+        border-left: 4px solid #3498db;
+    }
+
+    .verse-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        -webkit-line-clamp: 12;
+        line-clamp: 12;
+    }
+
+    .book-chapter-verse {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .loading-indicator {
+        padding: 20px;
+    }
+
+    .loading-indicator p {
+        font-size: 1.1rem;
+        margin: 8px 0 0 0;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        margin-bottom: 10px;
+    }
+
+    .error-message {
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .error-message p {
+        font-size: 1.1rem;
+    }
+}
